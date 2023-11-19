@@ -8,4 +8,4 @@ const BotCollection = ({ bots, selectBot }) => (
 );
 
 
-export default BotCollection
+export default BotCollection;
