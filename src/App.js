@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import BotCollection from './BotCollection';
-import BotArmy from './BotArmy';
+import BotCollection from './components/BotCollection';
+import BotArmy from './components/BotArmy';
 import BotSpecs from './BotSpecs';
 import SortBot from './SortBot';
 
