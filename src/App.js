@@ -3,23 +3,30 @@ import BotCollection from './components/BotCollection';
 import BotArmy from './components/BotArmy';
 import BotSpecs from './components/BotSpecs';
 import SortBot from './components/SortBot';
+import './App.css';
 
 class App extends Component {
-  state = {
-    bots: [],
-    army: [],
-    selectedBot: null
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      bots: [],
+      army: [],
+      selectedBot: null
+    };
+
+    // Binding the function
+    this.addBotToArmy = this.addBotToArmy.bind(this);
+  }
 
   componentDidMount() {
-    // Fetching the bots data from teh JSON server and setting it to state
+    // Fetching the bots data from the JSON server and setting it to state
     fetch('http://localhost:3000/bots')
       .then(Response => Response.json())
       .then(bots => this.setState({ bots }));
   }
 
-  addBotToArmy = (bot) => {
-    // Checking if teh army already includes a bot from the same class
+  addBotToArmy(bot) {
+    // Checking if the army already includes a bot from the same class
     if (!this.state.army.some(b => b.bot_class === bot.bot_class)) {
       this.setState(prevState => ({
         army: [...prevState.army, bot],
@@ -27,12 +34,12 @@ class App extends Component {
         bots: prevState.bots.filter(b => b.id !== bot.id)
       }));
     }
-  };
+  }
 
   releaseBot = (bot) => {
     this.setState(prevState => ({
       army: prevState.army.filter(b => b.id !== bot.id),
-      // Adding the bot back to teh BotCollection
+      // Adding the bot back to the BotCollection
       bots: [...prevState.bots, bot]
     }));
   };
@@ -50,7 +57,7 @@ class App extends Component {
   };
 
   selectBot = (bot) => {
-    //Setting the  selcted bot
+    //Setting the selected bot
     this.setState({ selectedBot: bot });
   };
 
@@ -73,9 +80,9 @@ class App extends Component {
       <div>
         <SortBot sortBots={this.sortBot} filterBots={this.filterBots} />
         {this.state.selectedBot ? (
-          <BotSpecs bot={this.state.selectedBot} addBotToArmy={this.addBotToArmy} />
+        <BotSpecs bot={this.state.selectedBot} selectBot={this.selectBot} addBotToArmy={this.addBotToArmy} />
         ) : (
-          <BotCollection bots={this.state.bots} selectBot={this.selectBot} />
+        <BotCollection bots={this.state.bots} selectBot={this.selectBot} />
         )}
         <BotArmy army={this.state.army} releaseBot={this.releaseBot} />
       </div>
