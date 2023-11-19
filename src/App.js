@@ -13,7 +13,7 @@ class App extends Component {
 
   componentDidMount() {
     // Fetching the bots data from teh JSON server and setting it to state
-    fetch('https://localhost:3000/bots')
+    fetch('http://localhost:3000/bots')
       .then(Response => Response.json())
       .then(bots => this.setState({ bots }));
   }
@@ -39,7 +39,7 @@ class App extends Component {
 
   dischargeBot = (bot) => {
     //Discharging the bot
-    fetch('https://localhost:3000/bots/${bot.id}', { method: 'DELETE' })
+    fetch('http://localhost:3000/bots/${bot.id}', { method: 'DELETE' })
       .then(() => {
         this.setState(prevState => ({
           bots: prevState.bots.filter(b => b.id !== bot.id),
