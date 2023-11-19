@@ -1,6 +1,6 @@
 import React from "react";
 
-const SortBots = ({ sortBots, filterBots }) => (
+const SortBot = ({ sortBots, filterBots }) => (
     <div>
         <button onClick={() => sortBots('health')}>Sort by Health</button>
         <button onClick={() => sortBots('damage')}>Sort by Damage</button>
@@ -10,4 +10,4 @@ const SortBots = ({ sortBots, filterBots }) => (
     </div>
 );
 
-export default SortBots;
+export default SortBot;

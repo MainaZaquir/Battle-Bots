@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import BotCollection from './components/BotCollection';
 import BotArmy from './components/BotArmy';
-import BotSpecs from './BotSpecs';
-import SortBot from './SortBot';
+import BotSpecs from './components/BotSpecs';
+import SortBot from './components/SortBot';
 
 class App extends Component {
   state = {
@@ -53,7 +53,7 @@ class App extends Component {
     this.setState({ selectedBot: bot });
   };
 
-  sortBots = (criteria) => {
+  sortBot = (criteria) => {
     //Sorting the bots
     this.setState(prevState => ({
       bots: prevState.bots.sort((a, b) => b[criteria] - a[criteria])
@@ -70,7 +70,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <SortBar sortBots={this.sortBots} filterBots={this.filterBots} />
+        <SortBot sortBots={this.sortBots} filterBots={this.filterBots} />
         {this.state.selectedBot ? (
           <BotSpecs bot={this.state.selectedBot} addBotToArmy={this.addBotToArmy} />
         ) : (

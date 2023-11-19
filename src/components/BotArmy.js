@@ -7,4 +7,4 @@ const BotArmy = ({ army, releaseBot }) => (
     </div>
 );
 
-export BotArmy;
+export default BotArmy;
