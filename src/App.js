@@ -39,6 +39,7 @@ class App extends Component {
 
   dischargeBot = (bot) => {
     //Discharging the bot
+    // eslint-disable-next-line no-template-curly-in-string
     fetch('http://localhost:3000/bots/${bot.id}', { method: 'DELETE' })
       .then(() => {
         this.setState(prevState => ({
