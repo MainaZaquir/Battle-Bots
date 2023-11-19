@@ -1,6 +1,5 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: aqua;
 }
 
 div {
@@ -14,4 +13,30 @@ img{
 
 button {
   margin-top: 10px;
+}
+
+.bot-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+}
+
+.bot-card img {
+  width: 100%;
+  height: auto;
+}
+
+.bot-card button {
+  margin-top: 10px;
+}
+
+.bot-collection {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
 }

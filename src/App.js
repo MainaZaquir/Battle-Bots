@@ -71,7 +71,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <SortBot sortBots={this.sortBots} filterBots={this.filterBots} />
+        <SortBot sortBots={this.sortBot} filterBots={this.filterBots} />
         {this.state.selectedBot ? (
           <BotSpecs bot={this.state.selectedBot} addBotToArmy={this.addBotToArmy} />
         ) : (

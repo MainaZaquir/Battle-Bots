@@ -1,12 +1,13 @@
 import React from "react";
 
-const BotSpecs = ({ bot, addBotToArmy }) => (
-    <div>
-        <img src={bot.avatar_url} alt={bot.name} />
-        <h2>{bot.name}</h2>
-        <p>{bot.bot_class}</p>
-        <button onClick={() => addBotToArmy(bot)}>Enlist Bot</button>
-    </div>
+const BotSpecs = ({ bot, selectBot, addBotToArmy }) => (
+  <div className="bot-card">
+    <h2>{bot.name}</h2>
+    <img src={bot.avatar_url} alt={bot.name} />
+    <button onClick={() => selectBot(bot)}>View Details</button>
+    <button onClick={() => addBotToArmy(bot)}>Enlist</button>
+  </div>
 );
 
-export default BotSpecs
+export default BotSpecs;
+
