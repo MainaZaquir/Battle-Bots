@@ -15,7 +15,7 @@ class App extends Component {
 
   componentDidMount() {
     // Fetching the bots data from the server and initializing state
-    fetch('http://localhost:3000/bots')
+    fetch('https://my-json-server.typicode.com/MainaZaquir/Battle-Bots/bots')
       .then(response => response.json())
       .then(bots => this.setState({ bots, filteredBots: bots })); 
   }
@@ -42,7 +42,7 @@ class App extends Component {
 
   dischargeBot = (bot) => {
     // Discharge a bot permanently by deleting it from the backend and removing it from the frontend
-    fetch(`http://localhost:3000/bots/${bot.id}`, { method: 'DELETE' })
+    fetch(`https://my-json-server.typicode.com/MainaZaquir/Battle-Bots/bots/${bot.id}`, { method: 'DELETE' })
       .then(() => {
         this.setState(prevState => ({
           bots: prevState.bots.filter(b => b.id !== bot.id),
