@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
+import EnlistButton from './EnlistButton';
 
 const BotCard = ({ bot, selectBot, addBotToArmy }) => (
-  <div>
-    <div className="bot-card" onClick={() => selectBot(bot)}>
-      <img src={bot.avatar_url} alt={bot.name} />
-      <h2>{bot.name}</h2>
-      <p>{bot.bot_class}</p>
-    </div>
-    <button onClick={() => addBotToArmy(bot)}>Enlist</button>
+  <div className="bot-card" onClick={() => selectBot(bot)}>
+    <img src={bot.avatar_url} alt={bot.name} />
+    <h2>{bot.name}</h2>
+    <p>{bot.bot_class}</p>
+    <EnlistButton bot={bot} addBotToArmy={addBotToArmy} />
   </div>
 );
 
 export default BotCard;
+
